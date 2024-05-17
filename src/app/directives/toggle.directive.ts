@@ -10,7 +10,7 @@ export class ToggleDirective {
   constructor(private el: ElementRef) {
   }
 
-  @HostBinding('class.open') appToggle: boolean = false;
+  @HostBinding('class.borde') appToggle: boolean = false;
 
   @HostListener('click') onClick() {
     this.appToggle = !this.appToggle;

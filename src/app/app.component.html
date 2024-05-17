@@ -162,7 +162,7 @@
       fill: var(--gray-900);
     }
   
-    .open {
+    .borde {
       display: block;
       border: 1px solid #FF0000;
     }
@@ -231,33 +231,43 @@
           </defs>
         </svg>
         <h1>Ejemplo de directivas 🎉</h1>
+        <h2>Directivas de atributo personalizadas</h2>
+        <div id="ejm_dir_attr">
+          <ul>
+            <li>
+              <div id="cardContainer1">
+                <app-card appToggle>Ejemplo Card con directiva atributo (al hacer click, cambia la clase "borde" para el borde, mediante la directiva appToggle)</app-card>
+              </div>
+            </li>
+            <li>
+              <div id="cardContainer2">
+                <app-card>El mismo componente app-card sin la directiva appToggle. No tiene acción al hacer click</app-card>
+              </div>
+            </li>
+            <li>
+              <div id="cardContainer3">
+                <p appToggle>Elemento P que usa la misma directiva appToggle, y aplica el mismo comportamiento del componente al hacer click</p>
+              </div>
+            </li>
+          </ul>
+        </div>
         
-        <div id="cardContainer1">
-          <app-card appToggle>Ejemplo Card sin sin directiva atributo</app-card>
-        </div>
-        <div id="cardContainer2">
-          <p appToggle>Ejemplo Card sin con directiva atributo</p>
-        </div>
+        
+        <h2>Directivas estructurales personalizadas</h2>
+        
         <div id="ejm_dir_struct">
-          <button (click)="condicion = !condicion">toggle</button>
-          <app-card *appSi="condicion">Ejemplo Directiva Estructural</app-card>
-          <p  *appSi="!condicion">Párrafo con directiva estructural</p>
-          <p>Párrafo con directiva atributo</p>
+          <button (click)="condicion = !condicion">Haga click!</button>
+          <ul>
+            <li><app-card *appSi="condicion">Ejemplo Directiva Estructural, se muestra si condicion == true</app-card></li>
+            <li><p  *appSi="!condicion">Párrafo con directiva estructural, se muestra si condicion == false</p></li>
+          </ul>
+          
         </div> 
       </div>
-      <div class="divider" role="separator" aria-label="Divider"></div>
+  
       
     </div>
   </main>
-  
-  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-  
-  
+
   <router-outlet />
   
